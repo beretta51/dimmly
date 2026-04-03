@@ -1,0 +1,31 @@
+title: Dimmly
+description: Task & Habit Tracker for iPhone
+url: "https://beretta51.github.io"
+baseurl: "/dimmly"
+
+permalink: /blog/:slug/
+
+collections:
+  compare:
+    output: true
+    permalink: /compare/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: compare
+    values:
+      layout: compare
+
+markdown: kramdown
+highlighter: rouge
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

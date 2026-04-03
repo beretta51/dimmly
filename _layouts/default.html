@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% if page.title %}{{ page.title }} — Dimmly{% else %}Dimmly — Task & Habit Tracker for iPhone{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}Pull to add. Swipe to complete. Tasks and habits in one app. No account. No subscription.{% endif %}" />
+  {% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}" />{% endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:  #FFD444;
+      --orange:  #FF7A1A;
+      --pink:    #FF4D8D;
+      --purple:  #7B3FE4;
+      --red:     #E8303A;
+      --teal:    #00B8C8;
+      --dark:    #0F0F0F;
+      --mid:     #1A1A1A;
+      --text:    #F5F3EE;
+      --muted:   rgba(245,243,238,0.55);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 40px;
+      backdrop-filter: blur(20px) saturate(1.5);
+      background: rgba(15,15,15,0.75);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-left { display: flex; align-items: center; gap: 32px; }
+    .nav-logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: 1.2rem;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-link {
+      font-size: 0.88rem; font-weight: 600;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-link:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--yellow); color: var(--dark);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: 0.85rem;
+      padding: 10px 22px; border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .nav-cta:hover { transform: scale(1.04); box-shadow: 0 0 24px rgba(255,212,68,0.35); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 0.8rem; color: var(--muted);
+      flex-wrap: wrap; gap: 12px;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+    .footer-links { display: flex; gap: 24px; }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .nav-link { display: none; }
+      footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+  {% if page.extra_css %}{{ page.extra_css }}{% endif %}
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a class="nav-logo" href="{{ site.baseurl }}/">Dimmly</a>
+    <a class="nav-link" href="{{ site.baseurl }}/blog/">Blog</a>
+    <a class="nav-link" href="{{ site.baseurl }}/compare/">Compare</a>
+  </div>
+  <a class="nav-cta" href="https://apps.apple.com/us/app/dimmly-task-habit-tracker/id6761221806">Download free</a>
+</nav>
+
+{{ content }}
+
+<footer>
+  <span>Dimmly — Task & Habit Tracker for iPhone</span>
+  <div class="footer-links">
+    <a href="{{ site.baseurl }}/blog/">Blog</a>
+    <a href="{{ site.baseurl }}/compare/">Compare</a>
+    <a href="https://apps.apple.com/us/app/dimmly-task-habit-tracker/id6761221806">App Store</a>
+  </div>
+</footer>
+
+</body>
+</html>
